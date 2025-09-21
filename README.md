@@ -58,4 +58,45 @@ Spendo helps you:
 ---
 
 ## Project Structure
+spendo/
+docker-compose.yml # main orchestrator
 
+db/
+init.sql # schema & seed data
+
+api/
+Dockerfile
+requirements.txt
+app/
+main.py # FastAPI entrypoint
+... # routers, models, services (to be added)
+
+web/
+Dockerfile
+package.json
+vite.config.mjs # Vite config with React plugin
+index.html
+src/
+main.jsx
+App.jsx
+---
+
+## Getting Started
+
+### Prerequisites
+- Docker & Docker Compose plugin installed
+- Free ports: 5432 (db), 8000 (api), 3000 (web)
+
+### Run
+bash
+docker compose up -d --build
+
+### Access
+
+API docs (Swagger): http://localhost:8000/docs
+
+Frontend (dark UI placeholder): http://localhost:3000
+
+Health checks
+curl http://localhost:8000/health
+curl http://localhost:8000/periods
